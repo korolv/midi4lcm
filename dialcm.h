@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy of the GNU Lesser General Public License
  * along with midi4lcm. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -19,10 +19,9 @@
 #define DIA_LCM_H
 
 #include <stdint.h>
-#include "ikbusframe.h"
+#include <linux/ikbusframe.h>
 
 #define LIGHT_UNIT_SIZE 25
-#define LIGHT_BIT_SHIFT(n,m) (m[(n)/8] = 0x80 >> ((n)%8)) /* Set bit in array */
 
 typedef uint32_t light_mask_t;
 
@@ -49,24 +48,23 @@ light_unit_t light_units[LIGHT_UNIT_SIZE] = {
 
     /* REAR */
         /* right */
-    {"brake light back right",          0},
-    {"backup light back right",         0},
-    {"fog light back right",            0},
-    {"tail light outside back right",   0},
-    {"tail light inside back right",    0},
-    {"turn signal back right",          0},
-    {"registration plate light right",  0},
+    {"brake light back right",          0x00000010},
+    {"backup light back right",         0x80000000},
+    {"fog light back right",            0x00008000},
+    {"tail light outside back right",   0x10000000},
+    {"tail light inside back right",    0x08000000},
+    {"turn signal back right",          0x02000000},
+    {"registration plate light right",  0x00040000},
         /* center */
-    {"brake light back center",         0},
+    {"brake light back center",         0x00100000},
         /* left */
-    {"registration plate light left",   0},
-    {"turn signal back left",           0},
-    {"tail light inside back left",     0},
-    {"tail light outside back left",    0},
-    {"fog light back left",             3},
-    {"backup light back left",          0},
-    {"brake light back left",           0},
+    {"registration plate light left",   0x00000004},
+    {"turn signal back left",           0x00800000},
+    {"tail light inside back left",     0x00000200},
+    {"tail light outside back left",    0x00080000},
+    {"fog light back left",             0x04000000},
+    {"backup light back left",          0x00000800},
+    {"brake light back left",           0x00000008},
 };
 
 #endif /* DIA_LCM_H */
-

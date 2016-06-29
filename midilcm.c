@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy of the GNU Lesser General Public License
  * along with midi4lcm. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -29,7 +29,7 @@
 #include <net/if.h>
 #include <sys/poll.h>
 #include <fcntl.h>
-#include "ikbus.h"
+#include <linux/ikbus.h>
 #include "dialcm.h"
 
 #define MIDI_UDP_PORT 21928

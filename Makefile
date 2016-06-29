@@ -1,6 +1,6 @@
 PREFIX ?=/usr/local
 CC ?= gcc 
-CFLAGS = -Wall -I./include
+CFLAGS = -Wall
 
 all: midilcm
 
